@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:include src="header.xhtml"/>
+    <h:body>
+
+        <div class="jumbotron">
+            <div class="container">
+                <center><h1>Contact Us</h1></center>
+            </div>
+        </div>
+
+
+        <div class="container">
+
+            <!--Form-->
+            <form>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Subject</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter subject" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleSelect1">Type</label>
+                    <select class="form-control" id="exampleSelect1">
+                        <option>General</option>
+                        <option>Complain</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea">Body</label>
+                    <textarea class="form-control" id="exampleTextarea" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+
+            <!--Form ENds-->
+        </div><!--COntainer-->
+
+        <ui:include src="footer.xhtml"/>
+    </h:body>
+</html>

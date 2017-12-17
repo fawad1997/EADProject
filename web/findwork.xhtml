@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   <ui:include src="header.xhtml"/>
+<h:body>
+
+    <div class="jumbotron">
+        <div class="container">
+            <center>
+                <h1>Find Jobs</h1>
+                <br />
+                <form class="col-lg-12" method="get" action="hire.html">
+                    <input class="search" type="text" name="search" placeholder="Title.." />
+                </form>
+            </center>
+        </div><!--Container-->
+    </div><!--Jumbtron-->
+
+
+    <section id="jobs">
+        <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <aside>
+                    <h6><strong>Category</strong></h6>
+                    <br />
+                    <p class="blue">Web, Mobile &amp;amp; Software Dev</p>
+                    <p class="blue">IT &amp; Networking</p>
+                    <p class="blue">Data Science &amp; Analytics</p>
+                    <p class="blue">Engineering &amp; Architecture</p>
+                    <p class="blue">Design &amp; Creative</p>
+                    <br />
+                    <h6><strong>Job Location</strong></h6>
+                </aside>
+            </div>
+            <div class="col-sm-9 jobsdiv">
+                <section>
+                    <br />
+                    <h5 class="blue">Business Content Writing - Print Magazine and Web</h5>
+                    <small class="margin20right"><b>Country : </b>Pakistan</small>
+                    <small class="margin20right"><b>City : </b>Islamabad</small>
+                    <small class="margin20right"><b>Positions : </b>10</small>
+                    <small style="float: right;" class="text-muted margin20right"><b>Rating : </b>5</small>
+                    <p class="text-muted">Hello, I am starting a company that sells education software and I need to create a Facebook page to start my social media campaign.</p>
+                    <strong class="text-muted">Skills : </strong>
+                    <span class="skillsstyle">Html</span><span class="skillsstyle">ASP</span><span class="skillsstyle">CSS</span>
+                    <hr />
+                </section><!--Job Post-->
+                <section>
+                    <br />
+                    <h5 class="blue">Business Content Writing - Print Magazine and Web</h5>
+                    <small class="margin20right"><b>Country : </b>Pakistan</small>
+                    <small class="margin20right"><b>City : </b>Islamabad</small>
+                    <small class="margin20right"><b>Positions : </b>10</small>
+                    <small style="float: right;" class="text-muted margin20right"><b>Rating : </b>5</small>
+                    <p class="text-muted">Hello, I am starting a company that sells education software and I need to create a Facebook page to start my social media campaign.</p>
+                    <strong class="text-muted">Skills : </strong>
+                    <span class="skillsstyle">Html</span><span class="skillsstyle">ASP</span><span class="skillsstyle">CSS</span>
+                    <hr />
+                </section><!--Job Post-->
+            </div><!--Jobs Column-->
+		</div><!--Row-->
+        </div><!--Container-->
+    </section><!--Jobs Section-->
+
+    <ui:include src="footer.xhtml"/>
+</h:body>
+</html>
