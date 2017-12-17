@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:include src="header.xhtml"/>
+<h:body>
+
+    <!--Form-->
+    <div class="container">
+        <div class="col-md-5 offset-md-3 jumbotron align-middle" style="margin-top: 5%">
+            <h3 class="text-center">Sign Up</h3>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Repeat Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Category</label>
+                    <select class="form-control" id="exampleSelect1">
+                        <option>I want to work</option>
+                        <option>I want to hire</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Country</label>
+                    <select class="form-control" id="exampleSelect1">
+                        <option>Pakistan</option>
+                        <option>India</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">City</label>
+                    <select class="form-control" id="exampleSelect1">
+                        <option>Islamabad</option>
+                        <option>Lahore</option>
+                    </select>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-danger btn-block">Register</button>
+            </form>
+        </div>
+    </div><!--Container-->
+
+
+    <ui:include src="footer.xhtml"/>
+</h:body>
+</html>
