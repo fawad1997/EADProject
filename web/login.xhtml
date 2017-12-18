@@ -3,6 +3,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:include src="header.xhtml"/>
@@ -22,7 +24,7 @@
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
                     </div>
                     <br />
-                    <button type="submit" class="btn btn-success btn-block">Login</button>
+                    <p:button value="Login" outcome="index.xhtml" styleClass="btn btn-block btn-success" />
                 </form>
             </div>
         </div><!--Container-->
