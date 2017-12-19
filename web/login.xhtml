@@ -9,23 +9,23 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:include src="header.xhtml"/>
     <h:body>
-
+        <ui:include src="nav.xhtml"/>
         <!--Form-->
         <div class="container">
             <div class="col-md-5 offset-md-3 jumbotron align-middle" style="margin-top: 5%">
                 <h3 class="text-center">Login</h3>
-                <form action="welcome.html">
+                <h:form>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                        <label>Email address</label>
+                        <p:inputText value="" styleClass="form-control" placeholder="Enter Email..." />
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                        <label>Password</label>
+                        <p:inputText value="" styleClass="form-control" type="password" placeholder="Password..." />
                     </div>
                     <br />
                     <p:button value="Login" outcome="index.xhtml" styleClass="btn btn-block btn-success" />
-                </form>
+                </h:form>
             </div>
         </div><!--Container-->
         <ui:include src="footer.xhtml"/>

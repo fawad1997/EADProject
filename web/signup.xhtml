@@ -9,52 +9,66 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <ui:include src="header.xhtml"/>
 <h:body>
-
+    <ui:include src="nav.xhtml"/>
     <!--Form-->
     <div class="container">
         <div class="col-md-5 offset-md-3 jumbotron align-middle" style="margin-top: 5%">
             <h3 class="text-center">Sign Up</h3>
-            <form>
+            <h:form>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" />
+                    <label>Name</label>
+                    <p:inputText value="" styleClass="form-control" placeholder="Enter Name..."/>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                    <label>Email address</label>
+                    <p:inputText value="" styleClass="form-control" placeholder="e.g. fawad_12@outlook.com" type="email" />
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                    <label>Password</label>
+                    <p:inputText value="" type="password" styleClass="form-control" placeholder="Password..." />
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Repeat Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                    <label>Repeat Password</label>
+                    <p:inputText value="" type="password" styleClass="form-control" placeholder="Password..." />
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Category</label>
+                    <label>Category</label>
+                    <!--<p:selectOneMenu value="" styleClass="form-control">
+
+                    </p:selectOneMenu>-->
                     <select class="form-control" id="exampleSelect1">
                         <option>I want to work</option>
                         <option>I want to hire</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Country</label>
+                    <label>Country</label>
+                    <!--<p:selectOneMenu value="" styleClass="form-control">
+                        <f:selectItem itemLabel="Pakistan" itemValue="" />
+                        <f:selectItem itemLabel="India" itemValue="" />
+                    </p:selectOneMenu>-->
                     <select class="form-control" id="exampleSelect1">
                         <option>Pakistan</option>
                         <option>India</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">City</label>
-                    <select class="form-control" id="exampleSelect1">
+                    <label>City</label>
+                    <br />
+                    <p:selectOneMenu id="console" value="" style="width:100%;">
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                        <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                        <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                    </p:selectOneMenu>
+                    <!--<select class="form-control" id="exampleSelect1">
                         <option>Islamabad</option>
                         <option>Lahore</option>
-                    </select>
+                    </select>-->
                 </div>
                 <br />
                 <p:button value="Register" outcome="index.xhtml" styleClass="btn btn-info btn-block" />
-            </form>
+            </h:form>
         </div>
     </div><!--Container-->
 

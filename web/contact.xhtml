@@ -4,44 +4,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+>
     <ui:include src="header.xhtml"/>
     <h:body>
-
+        <ui:include src="nav.xhtml"/>
         <div class="jumbotron">
             <div class="container">
                 <center><h1>Contact Us</h1></center>
             </div>
         </div>
-
-
         <div class="container">
-
             <!--Form-->
-            <form>
+            <h:form>
 
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Subject</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter subject" />
+                    <label>Subject</label>
+                    <p:inputText value="" styleClass="form-control" placeholder="Subject..." />
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                    <label>Email address</label>
+                    <p:inputText value="" styleClass="form-control" type="email" placeholder="fawad_12@outlook.com" />
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
-                    <label for="exampleSelect1">Type</label>
-                    <select class="form-control" id="exampleSelect1">
+                    <label>Type</label><br/>
+                    <p:selectOneMenu value="" styleClass="form-control" placeholder="Complain Type...">
+
+                    </p:selectOneMenu>
+                    <!--<select class="form-control" id="exampleSelect1">
                         <option>General</option>
                         <option>Complain</option>
-                    </select>
+                    </select>-->
                 </div>
                 <div class="form-group">
-                    <label for="exampleTextarea">Body</label>
-                    <textarea class="form-control" id="exampleTextarea" rows="5"></textarea>
+                    <label>Body</label>
+                    <p:inputTextarea value="" styleClass="form-control" rows="5" />
                 </div>
-                <button type="submit" class="btn btn-success">Submit</button>
-            </form>
+                <p:button styleClass="btn btn-success" value="Submit" outcome="index.xhtml" />
+            </h:form>
 
             <!--Form ENds-->
         </div><!--COntainer-->

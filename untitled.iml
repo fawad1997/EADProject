@@ -19,5 +19,6 @@
     <orderEntry type="library" scope="PROVIDED" name="JBoss 11.0.0.Final" level="application_server_libraries" />
     <orderEntry type="library" name="Mojarra-1.2" level="project" />
     <orderEntry type="library" name="PrimeFaces-6.1" level="project" />
+    <orderEntry type="library" name="javax.faces-api-2.1" level="project" />
   </component>
 </module>

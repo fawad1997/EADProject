@@ -9,20 +9,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:include src="header.xhtml"/>
     <h:body>
-        <p:accordionPanel>
-            <p:tab title="First Tab Title">
-                <h:outputText value="Fawad" />
-            </p:tab>
-            <p:tab title="Second Tab Title">
-                <h:outputText value="Ziad" />
-            </p:tab>
-        </p:accordionPanel>
-
-        <p:breadCrumb>
-            <p:menuitem label="Home" url="index.xhtml" />
-            <p:menuitem label="Sports Label" url="#" />
-        </p:breadCrumb>
-
+        <ui:include src="nav.xhtml"/>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
