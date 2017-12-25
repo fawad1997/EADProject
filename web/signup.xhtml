@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
@@ -33,21 +32,15 @@
                 </div>
                 <div class="form-group">
                     <label>Category</label>
-                    <!--<p:selectOneMenu value="" styleClass="form-control">
 
-                    </p:selectOneMenu>-->
-                    <select class="form-control" id="exampleSelect1">
+                    <select class="form-control" id="work">
                         <option>I want to work</option>
                         <option>I want to hire</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Country</label>
-                    <!--<p:selectOneMenu value="" styleClass="form-control">
-                        <f:selectItem itemLabel="Pakistan" itemValue="" />
-                        <f:selectItem itemLabel="India" itemValue="" />
-                    </p:selectOneMenu>-->
-                    <select class="form-control" id="exampleSelect1">
+                    <select class="form-control" id="contry">
                         <option>Pakistan</option>
                         <option>India</option>
                     </select>
@@ -55,24 +48,16 @@
                 <div class="form-group">
                     <label>City</label>
                     <br />
-                    <p:selectOneMenu id="console" value="" style="width:100%;">
-                        <f:selectItem itemLabel="Select One" itemValue="" />
-                        <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                        <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                        <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
-                    </p:selectOneMenu>
-                    <!--<select class="form-control" id="exampleSelect1">
+                    <select class="form-control" id="city">
                         <option>Islamabad</option>
                         <option>Lahore</option>
-                    </select>-->
+                    </select>
                 </div>
                 <br />
                 <p:button value="Register" outcome="index.xhtml" styleClass="btn btn-info btn-block" />
             </h:form>
         </div>
     </div><!--Container-->
-
-
     <ui:include src="footer.xhtml"/>
 </h:body>
 </html>
