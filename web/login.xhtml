@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
@@ -17,14 +16,14 @@
                 <h:form>
                     <div class="form-group">
                         <label>Email address</label>
-                        <p:inputText value="" styleClass="form-control" placeholder="Enter Email..." />
+                        <p:inputText value="#{testbean.user.email}" type="email" styleClass="form-control" placeholder="Enter Email..." />
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <p:inputText value="" styleClass="form-control" type="password" placeholder="Password..." />
+                        <p:inputText value="#{testbean.user.password}" styleClass="form-control" type="password" placeholder="Password..." />
                     </div>
                     <br />
-                    <p:button value="Login" outcome="index.xhtml" styleClass="btn btn-block btn-success" />
+                    <p:commandButton value="Login" action="#{testbean.authenticateUser}" styleClass="btn btn-block btn-success" />
                 </h:form>
             </div>
         </div><!--Container-->

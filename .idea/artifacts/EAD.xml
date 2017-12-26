@@ -9,7 +9,6 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Mojarra-1.2" />
           <element id="library" level="project" name="PrimeFaces-6.1" />
-          <element id="library" level="project" name="javax.faces-api-2.1" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="untitled/web/Web" />

@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="javax.faces-api-2.1">
+  <library name="javax.faces-2.2.1">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Downloads/javax.faces-api-2.1.jar!/" />
+      <root url="jar://E:/Cooding Life/JAVA/lib/javax.faces-2.2.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
