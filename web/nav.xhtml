@@ -21,6 +21,7 @@
                         <li class="nav-item">
                             <h:form>
                                 <p:commandLink rendered="#{empty jobseeker}" action="hire" styleClass="nav-link" value="Hire"></p:commandLink>
+                                <p:commandLink rendered="#{not empty email}" action="welcome?faces-redirect=true" styleClass="nav-link" value="Profile"></p:commandLink>
                             </h:form>
                         </li>
                         <li class="nav-item">
@@ -46,11 +47,12 @@
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="welcome.xhtml" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    #{email}
+
+                                    <img src="assets/pics/fawad.jpg" class="rounded-circle" height="25"/> #{email}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <h:commandLink styleClass="dropdown-item" value="CV" action="user?faces-redirect=true"></h:commandLink>
-                                    <a class="dropdown-item" href="#">Change Password</a>
+                                    <h:commandLink styleClass="dropdown-item" value="Settings" action="settings.xhtml?faces-redirect=true"></h:commandLink>
                                     <div class="dropdown-divider"></div>
                                     <h:commandLink styleClass="dropdown-item" value="logout" action="#{testbean.invalidate()}"></h:commandLink>
                                 </div>

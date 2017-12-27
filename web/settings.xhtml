@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:include src="header.xhtml"/>
+<h:body>
+    <ui:include src="nav.xhtml"/>
+    <br /><br />
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <ul class="nav nav-tabs list-group">
+                    <li class="nav-item">
+                        <a class="list-group-item list-group-item-action active" data-toggle="tab" href="#account">Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="list-group-item list-group-item-action" data-toggle="tab" href="#profile">Other</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-sm-9">
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active show" id="account">
+                        <div class="jumbotron">
+                            <h3>Change Password</h3>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label class="col-form-label">Email</label>
+                                </div>
+                                <div class="col-sm-9 form-group">
+                                    <input class="form-control" type="text" value="${email}" disabled="true" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label class="col-form-label">Current Password</label>
+                                </div>
+                                <div class="col-sm-9 form-group">
+                                    <input class="form-control" type="password" value="" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label class="col-form-label">New Password</label>
+                                </div>
+                                <div class="col-sm-9 form-group">
+                                    <input class="form-control" type="password" value="" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label class="col-form-label">Repeat New Password</label>
+                                </div>
+                                <div class="col-sm-9 form-group">
+                                    <input class="form-control" type="password" value="" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                </div>
+                                <div class="col-sm-9 form-group">
+                                    <button type="submit" class="btn btn-primary">Change Password</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="profile">
+                        <p>Other Settings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ui:include src="footer.xhtml"/>
+</h:body>
+</html>

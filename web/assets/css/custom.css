@@ -1,12 +1,16 @@
 body{
 	font-family: 'Raleway',Helvetica,sans-serif;
 	font-size: 16px;
+    padding-bottom: 150px;
 	/*background-image: : url("assets/tile.jpg") top left repeat;*/
 }
-
+.footer{
+    background-color: #efefef;
+    margin-bottom: 0px;
+    height: 50px;
+}
 .carousel-inner{
 }
-
 .carousel-inner img{
 	 max-height:550px;
   	min-height: 300px;
