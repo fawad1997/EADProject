@@ -1,24 +1,17 @@
-import TestBackingBeans.User;
-import org.primefaces.model.DefaultStreamedContent;
-import org.primefaces.model.StreamedContent;
+import BackingBeans.User;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 @ManagedBean(name = "testbean")
-public class TestBean {
+public class Manager {
     //Fields
     private User user = new User();
 
     //Constructors
-    public TestBean() {
+    public Manager() {
     }
     //Getter and Setters
 
@@ -34,7 +27,7 @@ public class TestBean {
     public String authenticateUser(){
         System.out.println("Auth Method "+user.getEmail()+" : "+user.getPassword());
         if(user.getEmail().equals("fawad_12@outlook.com") && user.getPassword().equals("secret")){
-            System.out.println("Not Null");
+
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getSessionMap().put("email",user.getEmail());
             context.getExternalContext().getSessionMap().put("jobseeker",true);
@@ -52,5 +45,8 @@ public class TestBean {
         request.getSession( false ).invalidate();
         //FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return "index.xhtml?faces-redirect=true";
+    }
+    public String editUser(){
+        return "editUser.xhtml?faces-redirect=true";
     }
 }

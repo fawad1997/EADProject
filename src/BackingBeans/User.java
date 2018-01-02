@@ -1,4 +1,4 @@
-package TestBackingBeans;
+package BackingBeans;
 
 public class User {
     private String email;

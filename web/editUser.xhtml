@@ -9,12 +9,12 @@
     <ui:include src="nav.xhtml"/>
     <div class="container margintop-20" />
     <div class="container">
-    <div class="row">
-        <div class="col-sm-8">
-            <h2><b class="bluetext">Fawad Bin Tariq</b></h2>
-            <p class="text-muted">Web Developer</p>
-        </div><!--Col-sm-8-->
-        <div class="col-sm-4">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2><b class="bluetext">Fawad Bin Tariq</b></h2>
+                <p class="text-muted">Web Developer</p>
+            </div><!--Col-sm-8-->
+            <div class="col-sm-4">
       <span class="float-right">
         <a href="#" class="fa fa-facebook icon-font"></a>
         <a href="#" class="fa fa-twitter icon-font"></a>
@@ -22,43 +22,77 @@
         <a href="#" class="fa fa-linkedin icon-font"></a>
         <a href="#" class="fa fa-skype icon-font"></a>
       </span>
-        </div><!--col-sm-4-->
-    </div><!--Row-->
-    <hr />
+            </div><!--col-sm-4-->
+        </div><!--Row-->
+        <hr />
         <div class="row">
             <div class="col-sm-3">
                 <img class="img-thumbnail" src="assets/pics/fawad.jpg" />
                 <h3 class="bluetext margintop-20"><b>Fawad Bin Tariq</b></h3>
-                <p class="text-muted text-justify">My Basic Intro</p>
-                <p:commandButton rendered="#{empty jobseeker}" styleClass="btn btn-primary btn-block margintop-10" value="Hire"></p:commandButton>
-                <h:form>
-                <p:commandButton rendered="#{not empty jobseeker}" styleClass="btn btn-primary btn-block margintop-10" action="#{testbean.editUser}" value="Edit"></p:commandButton>
-                </h:form>
-            </div><!--Col-sm-3-->
+          </div><!--Col-sm-3-->
             <div class="col-sm-9">
                 <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
 
                     <div class="panel panel-default">
                         <div class="panel-heading"><h5 id="basicintro">About Me</h5></div>
                         <div class="panel-body">
-                            <p>Independent, motivated individual seeking a position in a challenging environment, in an organization where I can apply and expand my programming and development skills to contribute positively to the growth of the company and achieve individual and team goals.
-                            </p>
+                            <p:inputTextarea value="" styleClass="form-control" rows="5">
+                            </p:inputTextarea>
                         </div><!--Pannel Body-->
                     </div><!--Default Pannel-->
 
                     <div class="panel panel-default">
                         <div class="panel-heading"><h5 id="Education">Education</h5></div>
                         <div class="panel-body">
-                            <div class="row container">
-                                <div class="col-sm-10">
-                                    <strong>
-                                        Capital University of Science and Technology, Islamabad
-                                    </strong>
+
+                            <h:form styleClass="form-inline" style="width: 100%;">
+                                <div class="form-group" style="width: 100%;">
+                                    <div class="col-sm-3">
+                                        <label>Qualification</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <select  style="width: 100%;" class="form-control" id="exampleSelect1">
+                                            <option>SSC</option>
+                                            <option>HSSC</option>
+                                            <option>BS</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-sm-2">
-                                    January ‘15 – June ‘19
+                                <br/>
+
+                                <div class="form-group" style="width: 100%;">
+                                    <div class="col-sm-3">
+                                        <label>Degree Title</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p:inputText style="width: 100%;" type="text" styleClass="form-control" placeholder="Title" />
+                                    </div>
                                 </div>
-                            </div><!--Row-->
+                                <div class="form-group" style="width: 100%;">
+                                    <div class="col-sm-3">
+                                        <label>Start Date</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p:inputText style="width: 100%;" type="text" styleClass="form-control" placeholder="Title" />
+                                    </div>
+                                </div>
+                                <div class="form-group" style="width: 100%;">
+                                    <div class="col-sm-3">
+                                        <label>End Date</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p:inputText style="width: 100%;" type="text" styleClass="form-control" placeholder="Title" />
+                                    </div>
+                                </div>
+                                <div class="form-group" style="width: 100%;">
+                                    <div class="col-sm-3">
+                                        <label>Marks</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p:inputText style="width: 100%;" type="text" styleClass="form-control" placeholder="Title" />
+                                    </div>
+                                </div>
+                            </h:form>
                         </div><!--Pannel Body-->
                     </div><!--Default Pannel-->
 

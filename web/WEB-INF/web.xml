@@ -9,6 +9,11 @@
         <filter-name>RestrictPageFilter</filter-name>
         <url-pattern>/welcome.xhtml</url-pattern>
     </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>RestrictPageFilter</filter-name>
+        <url-pattern>/editUser.xhtml</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
