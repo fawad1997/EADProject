@@ -2,10 +2,11 @@ package EntityModels;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "jobs", schema = "ead", catalog = "")
+@Table(name = "jobs")
 public class JobsEntity {
     private int jobId;
     private String jobTitle;
@@ -15,9 +16,15 @@ public class JobsEntity {
     private String jobLocation;
     private int jobExperienceRequired;
     private String jobSalary;
+//    private int jobMinQualificaionId;
+//    private int companyId;
+    private Collection<JobSkillsRequiredEntity> jobSkillsRequiredsByJobId;
+    private QualificationEntity qualificationByJobMinQualificaionId;
+    private UsersEntity usersByCompanyId;
+    private Collection<UserAppliesJobEntity> userAppliesJobsByJobId;
 
     @Id
-    @Column(name = "job_id")
+    @Column(name = "job_id", nullable = false)
     public int getJobId() {
         return jobId;
     }
@@ -27,7 +34,7 @@ public class JobsEntity {
     }
 
     @Basic
-    @Column(name = "job_title")
+    @Column(name = "job_title", nullable = false, length = 50)
     public String getJobTitle() {
         return jobTitle;
     }
@@ -37,7 +44,7 @@ public class JobsEntity {
     }
 
     @Basic
-    @Column(name = "job_description")
+    @Column(name = "job_description", nullable = false, length = -1)
     public String getJobDescription() {
         return jobDescription;
     }
@@ -47,7 +54,7 @@ public class JobsEntity {
     }
 
     @Basic
-    @Column(name = "job_posttime")
+    @Column(name = "job_posttime", nullable = false)
     public Timestamp getJobPosttime() {
         return jobPosttime;
     }
@@ -57,7 +64,7 @@ public class JobsEntity {
     }
 
     @Basic
-    @Column(name = "job_vacencies")
+    @Column(name = "job_vacencies", nullable = false)
     public int getJobVacencies() {
         return jobVacencies;
     }
@@ -67,7 +74,7 @@ public class JobsEntity {
     }
 
     @Basic
-    @Column(name = "job_location")
+    @Column(name = "job_location", nullable = true, length = -1)
     public String getJobLocation() {
         return jobLocation;
     }
@@ -77,7 +84,7 @@ public class JobsEntity {
     }
 
     @Basic
-    @Column(name = "job_experience_required")
+    @Column(name = "job_experience_required", nullable = false)
     public int getJobExperienceRequired() {
         return jobExperienceRequired;
     }
@@ -87,7 +94,7 @@ public class JobsEntity {
     }
 
     @Basic
-    @Column(name = "job_salary")
+    @Column(name = "job_salary", nullable = true, length = 20)
     public String getJobSalary() {
         return jobSalary;
     }
@@ -95,6 +102,26 @@ public class JobsEntity {
     public void setJobSalary(String jobSalary) {
         this.jobSalary = jobSalary;
     }
+
+//    @Basic
+//    @Column(name = "job_min_qualificaion_id", nullable = false)
+//    public int getJobMinQualificaionId() {
+//        return jobMinQualificaionId;
+//    }
+//
+//    public void setJobMinQualificaionId(int jobMinQualificaionId) {
+//        this.jobMinQualificaionId = jobMinQualificaionId;
+//    }
+
+//    @Basic
+//    @Column(name = "company_id", nullable = false)
+//    public int getCompanyId() {
+//        return companyId;
+//    }
+//
+//    public void setCompanyId(int companyId) {
+//        this.companyId = companyId;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -104,6 +131,8 @@ public class JobsEntity {
         return jobId == that.jobId &&
                 jobVacencies == that.jobVacencies &&
                 jobExperienceRequired == that.jobExperienceRequired &&
+//                jobMinQualificaionId == that.jobMinQualificaionId &&
+//                companyId == that.companyId &&
                 Objects.equals(jobTitle, that.jobTitle) &&
                 Objects.equals(jobDescription, that.jobDescription) &&
                 Objects.equals(jobPosttime, that.jobPosttime) &&
@@ -115,5 +144,43 @@ public class JobsEntity {
     public int hashCode() {
 
         return Objects.hash(jobId, jobTitle, jobDescription, jobPosttime, jobVacencies, jobLocation, jobExperienceRequired, jobSalary);
+    }
+
+    @OneToMany(mappedBy = "jobsByJobId")
+    public Collection<JobSkillsRequiredEntity> getJobSkillsRequiredsByJobId() {
+        return jobSkillsRequiredsByJobId;
+    }
+
+    public void setJobSkillsRequiredsByJobId(Collection<JobSkillsRequiredEntity> jobSkillsRequiredsByJobId) {
+        this.jobSkillsRequiredsByJobId = jobSkillsRequiredsByJobId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "job_min_qualificaion_id", referencedColumnName = "qualification_id", nullable = false)
+    public QualificationEntity getQualificationByJobMinQualificaionId() {
+        return qualificationByJobMinQualificaionId;
+    }
+
+    public void setQualificationByJobMinQualificaionId(QualificationEntity qualificationByJobMinQualificaionId) {
+        this.qualificationByJobMinQualificaionId = qualificationByJobMinQualificaionId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "company_id", referencedColumnName = "user_id", nullable = false)
+    public UsersEntity getUsersByCompanyId() {
+        return usersByCompanyId;
+    }
+
+    public void setUsersByCompanyId(UsersEntity usersByCompanyId) {
+        this.usersByCompanyId = usersByCompanyId;
+    }
+
+    @OneToMany(mappedBy = "jobsByJobId")
+    public Collection<UserAppliesJobEntity> getUserAppliesJobsByJobId() {
+        return userAppliesJobsByJobId;
+    }
+
+    public void setUserAppliesJobsByJobId(Collection<UserAppliesJobEntity> userAppliesJobsByJobId) {
+        this.userAppliesJobsByJobId = userAppliesJobsByJobId;
     }
 }

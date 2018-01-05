@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "admin", schema = "ead", catalog = "")
+@Table(name = "admin")
 public class AdminEntity {
     private int adminId;
     private String adminName;
@@ -12,7 +12,7 @@ public class AdminEntity {
     private String adminPassword;
 
     @Id
-    @Column(name = "admin_id")
+    @Column(name = "admin_id", nullable = false)
     public int getAdminId() {
         return adminId;
     }
@@ -22,7 +22,7 @@ public class AdminEntity {
     }
 
     @Basic
-    @Column(name = "admin_name")
+    @Column(name = "admin_name", nullable = false, length = 80)
     public String getAdminName() {
         return adminName;
     }
@@ -32,7 +32,7 @@ public class AdminEntity {
     }
 
     @Basic
-    @Column(name = "admin_email")
+    @Column(name = "admin_email", nullable = false, length = 80)
     public String getAdminEmail() {
         return adminEmail;
     }
@@ -42,7 +42,7 @@ public class AdminEntity {
     }
 
     @Basic
-    @Column(name = "admin_password")
+    @Column(name = "admin_password", nullable = false, length = 80)
     public String getAdminPassword() {
         return adminPassword;
     }

@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "contact_us", schema = "ead", catalog = "")
+@Table(name = "contact_us")
 public class ContactUsEntity {
     private int csId;
     private int csType;
@@ -15,7 +15,7 @@ public class ContactUsEntity {
     private Timestamp csTime;
 
     @Id
-    @Column(name = "cs_id")
+    @Column(name = "cs_id", nullable = false)
     public int getCsId() {
         return csId;
     }
@@ -25,7 +25,7 @@ public class ContactUsEntity {
     }
 
     @Basic
-    @Column(name = "cs_type")
+    @Column(name = "cs_type", nullable = false)
     public int getCsType() {
         return csType;
     }
@@ -35,7 +35,7 @@ public class ContactUsEntity {
     }
 
     @Basic
-    @Column(name = "cs_subject")
+    @Column(name = "cs_subject", nullable = false, length = 80)
     public String getCsSubject() {
         return csSubject;
     }
@@ -45,7 +45,7 @@ public class ContactUsEntity {
     }
 
     @Basic
-    @Column(name = "cs_body")
+    @Column(name = "cs_body", nullable = false, length = -1)
     public String getCsBody() {
         return csBody;
     }
@@ -55,7 +55,7 @@ public class ContactUsEntity {
     }
 
     @Basic
-    @Column(name = "cs_email")
+    @Column(name = "cs_email", nullable = false, length = 80)
     public String getCsEmail() {
         return csEmail;
     }
@@ -65,7 +65,7 @@ public class ContactUsEntity {
     }
 
     @Basic
-    @Column(name = "cs_time")
+    @Column(name = "cs_time", nullable = false)
     public Timestamp getCsTime() {
         return csTime;
     }

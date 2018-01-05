@@ -5,16 +5,18 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "user_experience", schema = "ead", catalog = "")
+@Table(name = "user_experience")
 public class UserExperienceEntity {
     private int userExperienceId;
+//    private int userId;
     private Timestamp ueStartDate;
     private Timestamp ueEndDate;
     private String ueCompanyName;
     private String uePosition;
+    private UsersEntity usersByUserId;
 
     @Id
-    @Column(name = "user_experience_id")
+    @Column(name = "user_experience_id", nullable = false)
     public int getUserExperienceId() {
         return userExperienceId;
     }
@@ -23,8 +25,18 @@ public class UserExperienceEntity {
         this.userExperienceId = userExperienceId;
     }
 
+//    @Basic
+//    @Column(name = "user_id", nullable = false)
+//    public int getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(int userId) {
+//        this.userId = userId;
+//    }
+
     @Basic
-    @Column(name = "ue_start_date")
+    @Column(name = "ue_start_date", nullable = false)
     public Timestamp getUeStartDate() {
         return ueStartDate;
     }
@@ -34,7 +46,7 @@ public class UserExperienceEntity {
     }
 
     @Basic
-    @Column(name = "ue_end_date")
+    @Column(name = "ue_end_date", nullable = true)
     public Timestamp getUeEndDate() {
         return ueEndDate;
     }
@@ -44,7 +56,7 @@ public class UserExperienceEntity {
     }
 
     @Basic
-    @Column(name = "ue_company_name")
+    @Column(name = "ue_company_name", nullable = false, length = 50)
     public String getUeCompanyName() {
         return ueCompanyName;
     }
@@ -54,7 +66,7 @@ public class UserExperienceEntity {
     }
 
     @Basic
-    @Column(name = "ue_position")
+    @Column(name = "ue_position", nullable = false, length = 50)
     public String getUePosition() {
         return uePosition;
     }
@@ -79,5 +91,15 @@ public class UserExperienceEntity {
     public int hashCode() {
 
         return Objects.hash(userExperienceId, ueStartDate, ueEndDate, ueCompanyName, uePosition);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
+    public UsersEntity getUsersByUserId() {
+        return usersByUserId;
+    }
+
+    public void setUsersByUserId(UsersEntity usersByUserId) {
+        this.usersByUserId = usersByUserId;
     }
 }

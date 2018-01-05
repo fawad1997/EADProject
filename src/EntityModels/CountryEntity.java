@@ -1,16 +1,19 @@
 package EntityModels;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "country", schema = "ead", catalog = "")
+@Table(name = "country")
 public class CountryEntity {
     private int countryId;
     private String countryName;
+    private Collection<CityEntity> citiesByCountryId;
+    private Collection<UsersEntity> usersByCountryId;
 
     @Id
-    @Column(name = "country_id")
+    @Column(name = "country_id", nullable = false)
     public int getCountryId() {
         return countryId;
     }
@@ -20,7 +23,7 @@ public class CountryEntity {
     }
 
     @Basic
-    @Column(name = "country_name")
+    @Column(name = "country_name", nullable = false, length = 50)
     public String getCountryName() {
         return countryName;
     }
@@ -42,5 +45,23 @@ public class CountryEntity {
     public int hashCode() {
 
         return Objects.hash(countryId, countryName);
+    }
+
+    @OneToMany(mappedBy = "countryByCountryId")
+    public Collection<CityEntity> getCitiesByCountryId() {
+        return citiesByCountryId;
+    }
+
+    public void setCitiesByCountryId(Collection<CityEntity> citiesByCountryId) {
+        this.citiesByCountryId = citiesByCountryId;
+    }
+
+    @OneToMany(mappedBy = "countryByCountryId")
+    public Collection<UsersEntity> getUsersByCountryId() {
+        return usersByCountryId;
+    }
+
+    public void setUsersByCountryId(Collection<UsersEntity> usersByCountryId) {
+        this.usersByCountryId = usersByCountryId;
     }
 }

@@ -1,4 +1,7 @@
 import BackingBeans.User;
+import EntityModels.UsersEntity;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
@@ -7,11 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean(name = "testbean")
 public class Manager {
+
     //Fields
     private User user = new User();
 
     //Constructors
     public Manager() {
+
     }
     //Getter and Setters
 
@@ -23,6 +28,25 @@ public class Manager {
         this.user = user;
     }
     //My Methods
+    public String addUser(){
+        Transaction t = null;
+        Session s = Main.getSession();
+        t = s.beginTransaction();
+
+        UsersEntity userEntity = new UsersEntity();
+        userEntity.setName("test");
+        userEntity.setUserEmail("test1");
+        userEntity.setUserPassword("test2");
+        userEntity.setAddress("test3");
+        userEntity.setCityId(1);
+        userEntity.setDescription("test5");
+        userEntity.setEmpOrComp(1);
+
+        s.save(userEntity);
+        t.commit();
+        s.close();
+        return null;
+    }
     //Login
     public String authenticateUser(){
         System.out.println("Auth Method "+user.getEmail()+" : "+user.getPassword());
