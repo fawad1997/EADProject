@@ -1,5 +1,7 @@
 package DAO.DAOInterfaces;
 
+import BackingBeans.User;
+
 public interface UserDAO {
-    public boolean registerUser();
+    public boolean addUser(User user);
 }

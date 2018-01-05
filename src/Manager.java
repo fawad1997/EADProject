@@ -1,8 +1,11 @@
 import BackingBeans.User;
+import DAO.DAOFactory;
 import EntityModels.UsersEntity;
+import HibernateDB.Main;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -29,25 +32,21 @@ public class Manager {
     }
     //My Methods
     public String addUser(){
-        Transaction t = null;
-        Session s = Main.getSession();
-        t = s.beginTransaction();
-
-        UsersEntity userEntity = new UsersEntity();
-        userEntity.setName("test");
-        userEntity.setUserEmail("test1");
-        userEntity.setUserPassword("test2");
-        userEntity.setAddress("test3");
-        userEntity.setCityId(1);
-        userEntity.setDescription("test5");
-        userEntity.setEmpOrComp(1);
-
-        s.save(userEntity);
-        t.commit();
-        s.close();
+        System.out.println(user.getName());
+        System.out.println(user.getEmail());
+        System.out.println(user.getPassword());
+        System.out.println(user.getRptPassword());
+        System.out.println(user.getCategory());
+        System.out.println(user.getCity());
+        System.out.println(user.getCountry());
+        if(DAOFactory.getUser().addUser(user)) {
+            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, "Record Successfull", null);
+        }else{
+            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error Inserting Record", null);
+        }
         return null;
     }
-    //Login
+
     public String authenticateUser(){
         System.out.println("Auth Method "+user.getEmail()+" : "+user.getPassword());
         if(user.getEmail().equals("fawad_12@outlook.com") && user.getPassword().equals("secret")){

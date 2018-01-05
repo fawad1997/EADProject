@@ -13,46 +13,44 @@
     <div class="container">
         <div class="col-md-5 offset-md-3 jumbotron align-middle" style="margin-top: 5%">
             <h3 class="text-center">Sign Up</h3>
+            <h:messages infoStyle="color:darkgreen" errorStyle="color:darkred" globalOnly="true"  />
             <h:form>
 
                 <div class="form-group">
                     <label>Name</label>
-                    <p:inputText value="" styleClass="form-control" placeholder="Enter Name..."/>
+                    <p:inputText value="#{testbean.user.name}" styleClass="form-control" placeholder="Enter Name..."/>
                 </div>
                 <div class="form-group">
                     <label>Email address</label>
-                    <p:inputText value="" styleClass="form-control" placeholder="e.g. fawad_12@outlook.com" type="email" />
+                    <p:inputText value="#{testbean.user.email}" styleClass="form-control" placeholder="e.g. fawad_12@outlook.com" type="email" />
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <p:inputText value="" type="password" styleClass="form-control" placeholder="Password..." />
+                    <p:inputText value="#{testbean.user.password}" type="password" styleClass="form-control" placeholder="Password..." />
                 </div>
                 <div class="form-group">
                     <label>Repeat Password</label>
-                    <p:inputText value="" type="password" styleClass="form-control" placeholder="Password..." />
+                    <p:inputText value="#{testbean.user.rptPassword}" type="password" styleClass="form-control" placeholder="Password..." />
                 </div>
                 <div class="form-group">
                     <label>Category</label>
-
-                    <select class="form-control" id="work">
-                        <option>I want to work</option>
-                        <option>I want to hire</option>
-                    </select>
+                    <h:selectOneMenu value="#{testbean.user.category}" styleClass="form-control">
+                        <f:selectItem itemValue="0" itemLabel="I want to Hire" />
+                        <f:selectItem itemValue="1" itemLabel="I want to Work" />
+                    </h:selectOneMenu>
                 </div>
                 <div class="form-group">
                     <label>Country</label>
-                    <select class="form-control" id="contry">
-                        <option>Pakistan</option>
-                        <option>India</option>
-                    </select>
+                    <h:selectOneMenu value="#{testbean.user.country}" styleClass="form-control" >
+                        <f:selectItem itemValue="1" itemLabel="Pakistan" />
+                    </h:selectOneMenu>
                 </div>
                 <div class="form-group">
                     <label>City</label>
                     <br />
-                    <select class="form-control" id="city">
-                        <option>Islamabad</option>
-                        <option>Lahore</option>
-                    </select>
+                    <h:selectOneMenu value="#{testbean.user.city}" styleClass="form-control">
+                        <f:selectItem itemValue="1" itemLabel="Islamabad" />
+                    </h:selectOneMenu>
                 </div>
                 <br />
                 <p:commandButton value="Register" action="#{testbean.addUser()}" styleClass="btn btn-info btn-block" />
