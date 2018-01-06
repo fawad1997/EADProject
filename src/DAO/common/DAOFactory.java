@@ -1,4 +1,4 @@
-package DAO;
+package DAO.common;
 
 import DAO.DAOImplementation.UserDAOImp;
 

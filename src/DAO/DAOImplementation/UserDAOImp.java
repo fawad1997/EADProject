@@ -1,9 +1,7 @@
 package DAO.DAOImplementation;
 
 import BackingBeans.User;
-import DAO.DAOFactory;
 import DAO.DAOInterfaces.UserDAO;
-import EntityModels.CountryEntity;
 import EntityModels.UsersEntity;
 import HibernateDB.Main;
 import org.hibernate.Query;
@@ -17,7 +15,7 @@ public class UserDAOImp implements UserDAO {
 
     @Override
     public boolean addUser(User user) {
-        Session s = Main.getSession();
+        Session s = Main.openSession();
         Transaction t = s.beginTransaction();
         try{
             UsersEntity usersEntity = new UsersEntity();
@@ -38,7 +36,7 @@ public class UserDAOImp implements UserDAO {
 
     @Override
     public boolean authUser(User user) {
-        Session s = Main.getSession();
+        Session s = Main.openSession();
         Transaction t = s.beginTransaction();
         try{
             System.out.println("auth");

@@ -1,9 +1,7 @@
+package Controllers;
+
 import BackingBeans.User;
-import DAO.DAOFactory;
-import EntityModels.UsersEntity;
-import HibernateDB.Main;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import DAO.common.DAOFactory;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
