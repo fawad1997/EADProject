@@ -9,8 +9,8 @@
         <!--Navbar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="index.xhtml">
-                    <img src="assets/pics/nexin.jpg" width="30" height="30" alt="" />
+                <a class="navbar-brand" href="#{request.contextPath}/index.xhtml">
+                    <img src="#{request.contextPath}/assets/pics/nexin.jpg" width="30" height="30" alt="" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,20 +21,20 @@
                         <li class="nav-item">
                             <h:form>
                                 <p:commandLink rendered="#{empty jobseeker}" action="hire" styleClass="nav-link" value="Hire"></p:commandLink>
-                                <p:commandLink rendered="#{not empty jobseeker}" action="welcome?faces-redirect=true" styleClass="nav-link" value="Profile"></p:commandLink>
+                                <p:commandLink rendered="#{not empty jobseeker}" action="welcome?faces-redirect=true" styleClass="nav-link" value="#{request.contextPath}/Profile"></p:commandLink>
                             </h:form>
                         </li>
                         <li class="nav-item">
                             <h:form>
                                 <h:commandLink rendered="#{empty company}" styleClass="nav-link" value="Find Work" action="findwork?faces-redirect=true"></h:commandLink>
-                                <h:commandLink rendered="#{not empty company}" styleClass="nav-link" value="Jobs" action="jobs?faces-redirect=true"></h:commandLink>
+                                <h:commandLink rendered="#{not empty company}" styleClass="nav-link" value="Jobs" action="job/jobs?faces-redirect=true"></h:commandLink>
                             </h:form>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="faqs.xhtml">How It Works?</a>
+                            <a class="nav-link" href="#{request.contextPath}/faqs.xhtml">How It Works?</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.xhtml">Contact Us</a>
+                            <a class="nav-link" href="#{request.contextPath}/contact.xhtml">Contact Us</a>
                         </li>
                     </ul>
                     <h:form>
@@ -43,7 +43,7 @@
                                 <p:link styleClass="nav-link" outcome="login.xhtml" value="Login" rendered="true" />
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="signup.xhtml">Sign Up</a>
+                                <a class="nav-link" href="#{request.contextPath}/signup.xhtml">Sign Up</a>
                             </li>
                         </h:panelGroup>
                         <h:panelGroup rendered="#{not empty email}" styleClass="navbar-nav">
@@ -51,7 +51,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="welcome.xhtml" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                                    <img src="assets/pics/fawad.jpg" class="rounded-circle" height="25"/> #{email}
+                                    <img src="#{request.contextPath}/assets/pics/fawad.jpg" class="rounded-circle" height="25"/> #{email}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <h:commandLink styleClass="dropdown-item" value="CV" action="user?faces-redirect=true"></h:commandLink>

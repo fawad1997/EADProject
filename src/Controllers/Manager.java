@@ -2,6 +2,8 @@ package Controllers;
 
 import BackingBeans.UserDTO;
 import DAO.common.DAOFactory;
+import EntityModels.CountryEntity;
+import EntityModels.UserEntity;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
@@ -29,18 +31,18 @@ public class Manager {
 
     //My Methods
     public String addUser(){
-        /*UserEntity userEntity = new UserEntity();
+        UserEntity userEntity = new UserEntity();
         userEntity.setName(user.getName());
         userEntity.setUserEmail(user.getEmail());
         userEntity.setUserPassword(user.getPassword());
         userEntity.setAddress("");
         userEntity.setCityId(user.getCity());
         userEntity.setDescription("");
-        userEntity.setEmpOrComp(1);
-        CountryEntity countryEntity = DAOFactory.getCountry().findById(CountryEntity.class,user.getCountryId());
+        userEntity.setEmpOrComp(user.getCategory());
+        CountryEntity countryEntity = DAOFactory.getCountry().findById(CountryEntity.class,user.getCountry());
         userEntity.setCountryByCountryId(countryEntity);
         DAOFactory.getUser().create(userEntity);
-        */return null;
+        return null;
     }
 
     public String authenticateUser(){
