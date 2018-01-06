@@ -21,11 +21,14 @@
                         <li class="nav-item">
                             <h:form>
                                 <p:commandLink rendered="#{empty jobseeker}" action="hire" styleClass="nav-link" value="Hire"></p:commandLink>
-                                <p:commandLink rendered="#{not empty email}" action="welcome?faces-redirect=true" styleClass="nav-link" value="Profile"></p:commandLink>
+                                <p:commandLink rendered="#{not empty jobseeker}" action="welcome?faces-redirect=true" styleClass="nav-link" value="Profile"></p:commandLink>
                             </h:form>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="findwork.xhtml">Find Work</a>
+                            <h:form>
+                                <h:commandLink rendered="#{empty company}" styleClass="nav-link" value="Find Work" action="findwork?faces-redirect=true"></h:commandLink>
+                                <h:commandLink rendered="#{not empty company}" styleClass="nav-link" value="Jobs" action="jobs?faces-redirect=true"></h:commandLink>
+                            </h:form>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="faqs.xhtml">How It Works?</a>

@@ -16,10 +16,8 @@ public class Manager {
 
     //Fields
     private User user = new User();
-
     //Constructors
     public Manager() {
-
     }
     //Getter and Setters
 
@@ -30,15 +28,17 @@ public class Manager {
     public void setUser(User user) {
         this.user = user;
     }
+
+
     //My Methods
     public String addUser(){
-        System.out.println(user.getName());
+/*        System.out.println(user.getName());
         System.out.println(user.getEmail());
         System.out.println(user.getPassword());
         System.out.println(user.getRptPassword());
         System.out.println(user.getCategory());
         System.out.println(user.getCity());
-        System.out.println(user.getCountry());
+        System.out.println(user.getCountry());*/
         if(DAOFactory.getUser().addUser(user)) {
             FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, "Record Successfull", null);
         }else{
@@ -48,12 +48,7 @@ public class Manager {
     }
 
     public String authenticateUser(){
-        System.out.println("Auth Method "+user.getEmail()+" : "+user.getPassword());
-        if(user.getEmail().equals("fawad_12@outlook.com") && user.getPassword().equals("secret")){
-
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.getExternalContext().getSessionMap().put("email",user.getEmail());
-            context.getExternalContext().getSessionMap().put("jobseeker",true);
+        if(DAOFactory.getUser().authUser(user)){
             return "welcome.xhtml?faces-redirect=true";
         }else {
             System.out.println("Else Part");
