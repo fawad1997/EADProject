@@ -9,7 +9,7 @@ public class UserPhonenoEntity {
     private int userPhoneId;
     private String phoneNo;
 //    private int userId;
-    private UsersEntity usersByUserId;
+    private UserEntity usersByUserId;
 
     @Id
     @Column(name = "user_phone_id", nullable = false)
@@ -59,11 +59,11 @@ public class UserPhonenoEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    public UsersEntity getUsersByUserId() {
+    public UserEntity getUsersByUserId() {
         return usersByUserId;
     }
 
-    public void setUsersByUserId(UsersEntity usersByUserId) {
+    public void setUsersByUserId(UserEntity usersByUserId) {
         this.usersByUserId = usersByUserId;
     }
 }

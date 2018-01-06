@@ -15,7 +15,7 @@ public class UserEducationEntity {
 //    private int qualificationId;
     private String qualificationSpecilization;
     private BigDecimal qualificationMarks;
-    private UsersEntity usersByUserId;
+    private UserEntity usersByUserId;
     private QualificationEntity qualificationByQualificationId;
 
     @Id
@@ -110,11 +110,11 @@ public class UserEducationEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    public UsersEntity getUsersByUserId() {
+    public UserEntity getUsersByUserId() {
         return usersByUserId;
     }
 
-    public void setUsersByUserId(UsersEntity usersByUserId) {
+    public void setUsersByUserId(UserEntity usersByUserId) {
         this.usersByUserId = usersByUserId;
     }
 

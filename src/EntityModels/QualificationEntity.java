@@ -9,7 +9,7 @@ import java.util.Objects;
 public class QualificationEntity {
     private int qualificationId;
     private String qualificationTitle;
-    private Collection<JobsEntity> jobsByQualificationId;
+    private Collection<JobEntity> jobsByQualificationId;
     private Collection<UserEducationEntity> userEducationsByQualificationId;
 
     @Id
@@ -48,11 +48,11 @@ public class QualificationEntity {
     }
 
     @OneToMany(mappedBy = "qualificationByJobMinQualificaionId")
-    public Collection<JobsEntity> getJobsByQualificationId() {
+    public Collection<JobEntity> getJobsByQualificationId() {
         return jobsByQualificationId;
     }
 
-    public void setJobsByQualificationId(Collection<JobsEntity> jobsByQualificationId) {
+    public void setJobsByQualificationId(Collection<JobEntity> jobsByQualificationId) {
         this.jobsByQualificationId = jobsByQualificationId;
     }
 

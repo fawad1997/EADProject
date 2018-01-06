@@ -6,13 +6,13 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "ratings")
-public class RatingsEntity {
+public class RatingEntity {
     private int rateId;
     private int rateTo;
     private int rateFrom;
     private BigDecimal ratePoints;
     private String rateDetails;
-    private UsersEntity usersByRateTo;
+    private UserEntity usersByRateTo;
 
     @Id
     @Column(name = "rate_id", nullable = false)
@@ -68,7 +68,7 @@ public class RatingsEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        RatingsEntity that = (RatingsEntity) o;
+        RatingEntity that = (RatingEntity) o;
         return rateId == that.rateId &&
                 rateTo == that.rateTo &&
                 rateFrom == that.rateFrom &&
@@ -84,11 +84,11 @@ public class RatingsEntity {
 
     @ManyToOne
     @JoinColumn(name = "rate_to", referencedColumnName = "user_id", nullable = false)
-    public UsersEntity getUsersByRateTo() {
+    public UserEntity getUsersByRateTo() {
         return usersByRateTo;
     }
 
-    public void setUsersByRateTo(UsersEntity usersByRateTo) {
+    public void setUsersByRateTo(UserEntity usersByRateTo) {
         this.usersByRateTo = usersByRateTo;
     }
 }

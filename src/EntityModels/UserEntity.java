@@ -6,7 +6,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "users")
-public class UsersEntity {
+public class UserEntity {
     private int userId;
     private String name;
     private String userEmail;
@@ -16,8 +16,8 @@ public class UsersEntity {
 //    private Integer countryId;
     private int cityId;
     private int empOrComp;
-    private Collection<JobsEntity> jobsByUserId;
-    private Collection<RatingsEntity> ratingsByUserId;
+    private Collection<JobEntity> jobsByUserId;
+    private Collection<RatingEntity> ratingsByUserId;
     private Collection<UserAppliesJobEntity> userAppliesJobsByUserId;
     private Collection<UserEducationEntity> userEducationsByUserId;
     private Collection<UserExperienceEntity> userExperiencesByUserId;
@@ -119,7 +119,7 @@ public class UsersEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UsersEntity that = (UsersEntity) o;
+        UserEntity that = (UserEntity) o;
         return userId == that.userId &&
                 cityId == that.cityId &&
                 empOrComp == that.empOrComp &&
@@ -138,20 +138,20 @@ public class UsersEntity {
     }
 
     @OneToMany(mappedBy = "usersByCompanyId")
-    public Collection<JobsEntity> getJobsByUserId() {
+    public Collection<JobEntity> getJobsByUserId() {
         return jobsByUserId;
     }
 
-    public void setJobsByUserId(Collection<JobsEntity> jobsByUserId) {
+    public void setJobsByUserId(Collection<JobEntity> jobsByUserId) {
         this.jobsByUserId = jobsByUserId;
     }
 
     @OneToMany(mappedBy = "usersByRateTo")
-    public Collection<RatingsEntity> getRatingsByUserId() {
+    public Collection<RatingEntity> getRatingsByUserId() {
         return ratingsByUserId;
     }
 
-    public void setRatingsByUserId(Collection<RatingsEntity> ratingsByUserId) {
+    public void setRatingsByUserId(Collection<RatingEntity> ratingsByUserId) {
         this.ratingsByUserId = ratingsByUserId;
     }
 

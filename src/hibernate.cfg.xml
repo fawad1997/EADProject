@@ -13,16 +13,16 @@
         <mapping class="EntityModels.ContactUsEntity"/>
         <mapping class="EntityModels.CountryEntity"/>
         <mapping class="EntityModels.JobSkillsRequiredEntity"/>
-        <mapping class="EntityModels.JobsEntity"/>
+        <mapping class="EntityModels.JobEntity"/>
         <mapping class="EntityModels.QualificationEntity"/>
-        <mapping class="EntityModels.RatingsEntity"/>
-        <mapping class="EntityModels.SkillsEntity"/>
+        <mapping class="EntityModels.RatingEntity"/>
+        <mapping class="EntityModels.SkillEntity"/>
         <mapping class="EntityModels.UserAppliesJobEntity"/>
         <mapping class="EntityModels.UserEducationEntity"/>
         <mapping class="EntityModels.UserExperienceEntity"/>
         <mapping class="EntityModels.UserPhonenoEntity"/>
         <mapping class="EntityModels.UserSkillsEntity"/>
-        <mapping class="EntityModels.UsersEntity"/>
+        <mapping class="EntityModels.UserEntity"/>
         <!-- <property name="connection.username"/> -->
         <!-- <property name="connection.password"/> -->
 

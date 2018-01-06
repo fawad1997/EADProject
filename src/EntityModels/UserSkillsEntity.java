@@ -9,8 +9,8 @@ public class UserSkillsEntity {
     private int usId;
 //    private transient int userId;
 //    private int skillId;
-    private UsersEntity usersByUserId;
-    private SkillsEntity skillsBySkillId;
+    private UserEntity usersByUserId;
+    private SkillEntity skillsBySkillId;
 
     @Id
     @Column(name = "us_id", nullable = false)
@@ -59,21 +59,21 @@ public class UserSkillsEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    public UsersEntity getUsersByUserId() {
+    public UserEntity getUsersByUserId() {
         return usersByUserId;
     }
 
-    public void setUsersByUserId(UsersEntity usersByUserId) {
+    public void setUsersByUserId(UserEntity usersByUserId) {
         this.usersByUserId = usersByUserId;
     }
 
     @ManyToOne
     @JoinColumn(name = "skill_id", referencedColumnName = "skill_id", nullable = false)
-    public SkillsEntity getSkillsBySkillId() {
+    public SkillEntity getSkillsBySkillId() {
         return skillsBySkillId;
     }
 
-    public void setSkillsBySkillId(SkillsEntity skillsBySkillId) {
+    public void setSkillsBySkillId(SkillEntity skillsBySkillId) {
         this.skillsBySkillId = skillsBySkillId;
     }
 }

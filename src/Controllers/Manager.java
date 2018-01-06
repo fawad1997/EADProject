@@ -1,9 +1,8 @@
 package Controllers;
 
-import BackingBeans.User;
+import BackingBeans.UserDTO;
 import DAO.common.DAOFactory;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -13,36 +12,35 @@ import javax.servlet.http.HttpServletRequest;
 public class Manager {
 
     //Fields
-    private User user = new User();
+    private UserDTO user = new UserDTO();
     //Constructors
     public Manager() {
     }
     //Getter and Setters
 
-    public User getUser() {
+    public UserDTO getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserDTO user) {
         this.user = user;
     }
 
 
     //My Methods
     public String addUser(){
-/*        System.out.println(user.getName());
-        System.out.println(user.getEmail());
-        System.out.println(user.getPassword());
-        System.out.println(user.getRptPassword());
-        System.out.println(user.getCategory());
-        System.out.println(user.getCity());
-        System.out.println(user.getCountry());*/
-        if(DAOFactory.getUser().addUser(user)) {
-            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, "Record Successfull", null);
-        }else{
-            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error Inserting Record", null);
-        }
-        return null;
+        /*UserEntity userEntity = new UserEntity();
+        userEntity.setName(user.getName());
+        userEntity.setUserEmail(user.getEmail());
+        userEntity.setUserPassword(user.getPassword());
+        userEntity.setAddress("");
+        userEntity.setCityId(user.getCity());
+        userEntity.setDescription("");
+        userEntity.setEmpOrComp(1);
+        CountryEntity countryEntity = DAOFactory.getCountry().findById(CountryEntity.class,user.getCountryId());
+        userEntity.setCountryByCountryId(countryEntity);
+        DAOFactory.getUser().create(userEntity);
+        */return null;
     }
 
     public String authenticateUser(){

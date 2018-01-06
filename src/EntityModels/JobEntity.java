@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "jobs")
-public class JobsEntity {
+public class JobEntity {
     private int jobId;
     private String jobTitle;
     private String jobDescription;
@@ -20,7 +20,7 @@ public class JobsEntity {
 //    private int companyId;
     private Collection<JobSkillsRequiredEntity> jobSkillsRequiredsByJobId;
     private QualificationEntity qualificationByJobMinQualificaionId;
-    private UsersEntity usersByCompanyId;
+    private UserEntity usersByCompanyId;
     private Collection<UserAppliesJobEntity> userAppliesJobsByJobId;
 
     @Id
@@ -127,7 +127,7 @@ public class JobsEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        JobsEntity that = (JobsEntity) o;
+        JobEntity that = (JobEntity) o;
         return jobId == that.jobId &&
                 jobVacencies == that.jobVacencies &&
                 jobExperienceRequired == that.jobExperienceRequired &&
@@ -167,11 +167,11 @@ public class JobsEntity {
 
     @ManyToOne
     @JoinColumn(name = "company_id", referencedColumnName = "user_id", nullable = false)
-    public UsersEntity getUsersByCompanyId() {
+    public UserEntity getUsersByCompanyId() {
         return usersByCompanyId;
     }
 
-    public void setUsersByCompanyId(UsersEntity usersByCompanyId) {
+    public void setUsersByCompanyId(UserEntity usersByCompanyId) {
         this.usersByCompanyId = usersByCompanyId;
     }
 

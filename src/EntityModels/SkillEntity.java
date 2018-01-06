@@ -6,7 +6,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "skills")
-public class SkillsEntity {
+public class SkillEntity {
     private int skillId;
     private String skillTitle;
     private int skillApproveStat;
@@ -47,7 +47,7 @@ public class SkillsEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SkillsEntity that = (SkillsEntity) o;
+        SkillEntity that = (SkillEntity) o;
         return skillId == that.skillId &&
                 skillApproveStat == that.skillApproveStat &&
                 Objects.equals(skillTitle, that.skillTitle);

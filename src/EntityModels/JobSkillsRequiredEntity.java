@@ -9,8 +9,8 @@ public class JobSkillsRequiredEntity {
     private int jsrId;
 //    private int jobId;
 //    private int skillId;
-    private JobsEntity jobsByJobId;
-    private SkillsEntity skillsBySkillId;
+    private JobEntity jobsByJobId;
+    private SkillEntity skillsBySkillId;
 
     @Id
     @Column(name = "jsr_id", nullable = false)
@@ -60,21 +60,21 @@ public class JobSkillsRequiredEntity {
 
     @ManyToOne
     @JoinColumn(name = "job_id", referencedColumnName = "job_id", nullable = false)
-    public JobsEntity getJobsByJobId() {
+    public JobEntity getJobsByJobId() {
         return jobsByJobId;
     }
 
-    public void setJobsByJobId(JobsEntity jobsByJobId) {
+    public void setJobsByJobId(JobEntity jobsByJobId) {
         this.jobsByJobId = jobsByJobId;
     }
 
     @ManyToOne
     @JoinColumn(name = "skill_id", referencedColumnName = "skill_id", nullable = false)
-    public SkillsEntity getSkillsBySkillId() {
+    public SkillEntity getSkillsBySkillId() {
         return skillsBySkillId;
     }
 
-    public void setSkillsBySkillId(SkillsEntity skillsBySkillId) {
+    public void setSkillsBySkillId(SkillEntity skillsBySkillId) {
         this.skillsBySkillId = skillsBySkillId;
     }
 }

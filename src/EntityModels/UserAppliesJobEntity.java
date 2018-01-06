@@ -12,8 +12,8 @@ public class UserAppliesJobEntity {
 //    private int jobId;
     private String coverLeter;
     private Timestamp applyTime;
-    private UsersEntity usersByUserId;
-    private JobsEntity jobsByJobId;
+    private UserEntity usersByUserId;
+    private JobEntity jobsByJobId;
 
     @Id
     @Column(name = "uaj_id", nullable = false)
@@ -85,21 +85,21 @@ public class UserAppliesJobEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    public UsersEntity getUsersByUserId() {
+    public UserEntity getUsersByUserId() {
         return usersByUserId;
     }
 
-    public void setUsersByUserId(UsersEntity usersByUserId) {
+    public void setUsersByUserId(UserEntity usersByUserId) {
         this.usersByUserId = usersByUserId;
     }
 
     @ManyToOne
     @JoinColumn(name = "job_id", referencedColumnName = "job_id", nullable = false)
-    public JobsEntity getJobsByJobId() {
+    public JobEntity getJobsByJobId() {
         return jobsByJobId;
     }
 
-    public void setJobsByJobId(JobsEntity jobsByJobId) {
+    public void setJobsByJobId(JobEntity jobsByJobId) {
         this.jobsByJobId = jobsByJobId;
     }
 }

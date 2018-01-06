@@ -13,7 +13,7 @@ public class UserExperienceEntity {
     private Timestamp ueEndDate;
     private String ueCompanyName;
     private String uePosition;
-    private UsersEntity usersByUserId;
+    private UserEntity usersByUserId;
 
     @Id
     @Column(name = "user_experience_id", nullable = false)
@@ -95,11 +95,11 @@ public class UserExperienceEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    public UsersEntity getUsersByUserId() {
+    public UserEntity getUsersByUserId() {
         return usersByUserId;
     }
 
-    public void setUsersByUserId(UsersEntity usersByUserId) {
+    public void setUsersByUserId(UserEntity usersByUserId) {
         this.usersByUserId = usersByUserId;
     }
 }

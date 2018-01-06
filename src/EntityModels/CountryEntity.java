@@ -10,7 +10,7 @@ public class CountryEntity {
     private int countryId;
     private String countryName;
     private Collection<CityEntity> citiesByCountryId;
-    private Collection<UsersEntity> usersByCountryId;
+    private Collection<UserEntity> usersByCountryId;
 
     @Id
     @Column(name = "country_id", nullable = false)
@@ -57,11 +57,11 @@ public class CountryEntity {
     }
 
     @OneToMany(mappedBy = "countryByCountryId")
-    public Collection<UsersEntity> getUsersByCountryId() {
+    public Collection<UserEntity> getUsersByCountryId() {
         return usersByCountryId;
     }
 
-    public void setUsersByCountryId(Collection<UsersEntity> usersByCountryId) {
+    public void setUsersByCountryId(Collection<UserEntity> usersByCountryId) {
         this.usersByCountryId = usersByCountryId;
     }
 }

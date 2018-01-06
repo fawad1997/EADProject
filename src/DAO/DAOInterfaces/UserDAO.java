@@ -1,8 +1,10 @@
 package DAO.DAOInterfaces;
 
-import BackingBeans.User;
+import BackingBeans.UserDTO;
+import DAO.common.GenericDao;
+import EntityModels.UserEntity;
 
-public interface UserDAO {
-    public boolean addUser(User user);
-    public boolean authUser(User user);
+public interface UserDAO extends GenericDao<UserEntity,Integer> {
+//    public boolean addUser(UserDTO user);
+    public boolean authUser(UserDTO user);
 }

@@ -1,8 +1,9 @@
 package DAO.DAOImplementation;
 
-import BackingBeans.User;
+import BackingBeans.UserDTO;
 import DAO.DAOInterfaces.UserDAO;
-import EntityModels.UsersEntity;
+import DAO.common.AbstractHibernateDao;
+import EntityModels.UserEntity;
 import HibernateDB.Main;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -11,14 +12,15 @@ import org.hibernate.Transaction;
 import javax.faces.context.FacesContext;
 import java.util.List;
 
-public class UserDAOImp implements UserDAO {
+public class UserDAOImp extends AbstractHibernateDao<UserEntity,Integer> implements UserDAO {
 
+/*
     @Override
-    public boolean addUser(User user) {
+    public boolean addUser(UserDTO user) {
         Session s = Main.openSession();
         Transaction t = s.beginTransaction();
         try{
-            UsersEntity usersEntity = new UsersEntity();
+            UserEntity usersEntity = new UserEntity();
             usersEntity.setName(user.getName());
             usersEntity.setUserEmail(user.getEmail());
             usersEntity.setAddress(" ");
@@ -33,17 +35,18 @@ public class UserDAOImp implements UserDAO {
         }
         return false;
     }
+*/
 
     @Override
-    public boolean authUser(User user) {
+    public boolean authUser(UserDTO user) {
         Session s = Main.openSession();
         Transaction t = s.beginTransaction();
         try{
             System.out.println("auth");
-            Query query = s.createQuery("from UsersEntity where userEmail=:email and userPassword=:pass");
+            Query query = s.createQuery("from UserEntity where userEmail=:email and userPassword=:pass");
             query.setString("email",user.getEmail());
             query.setString("pass",user.getPassword());
-            List<UsersEntity> list = query.list();
+            List<UserEntity> list = query.list();
             if (list.size()==1) {
                 FacesContext context = FacesContext.getCurrentInstance();
                 context.getExternalContext().getSessionMap().put("email",user.getEmail());
