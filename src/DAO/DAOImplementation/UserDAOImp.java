@@ -50,6 +50,7 @@ public class UserDAOImp extends AbstractHibernateDao<UserEntity,Integer> impleme
             if (list.size()==1) {
                 FacesContext context = FacesContext.getCurrentInstance();
                 context.getExternalContext().getSessionMap().put("email",user.getEmail());
+                context.getExternalContext().getSessionMap().put("id",list.get(0).getUserId());
                 if (list.get(0).getEmpOrComp()==0)
                     context.getExternalContext().getSessionMap().put("jobseeker",true);
                 else
