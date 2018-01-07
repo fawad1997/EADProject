@@ -9,7 +9,7 @@
 <h:body>
     <ui:include src="../nav.xhtml"/>
     <div class="container">
-        <center><h1>Post Job</h1></center>
+        <center><h1>Update Job</h1></center>
         <!--Form-->
         <h:form>
 
@@ -43,7 +43,7 @@
                 <label>Address</label>
                 <p:inputTextarea value="#{testbean.job.address}" styleClass="form-control" rows="5" />
             </div>
-            <p:commandButton value="Submit" action="#{testbean.createNewJobPost()}" styleClass="btn btn-block btn-success" />
+            <p:commandButton value="Update" action="#{testbean.editExistingJobPost()}" styleClass="btn btn-block btn-success" />
         </h:form>
     </div>
     <ui:include src="../footer.xhtml"/>

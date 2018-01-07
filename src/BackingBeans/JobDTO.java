@@ -1,6 +1,7 @@
 package BackingBeans;
 
 public class JobDTO {
+    private int jobId;
     private String title;
     private String description;
     private int vacencies;
@@ -9,6 +10,14 @@ public class JobDTO {
     private String salary;
     private int minQualification;
     private int companyId;
+
+    public int getJobId() {
+        return jobId;
+    }
+
+    public void setJobId(int jobId) {
+        this.jobId = jobId;
+    }
 
     public String getTitle() {
         return title;

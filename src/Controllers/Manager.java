@@ -7,20 +7,32 @@ import EntityModels.CountryEntity;
 import EntityModels.JobEntity;
 import EntityModels.QualificationEntity;
 import EntityModels.UserEntity;
+import HibernateDB.Main;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @ManagedBean(name = "testbean")
+@SessionScoped
 public class Manager {
 
     //Fields
     private UserDTO user = new UserDTO();
     private JobDTO job = new JobDTO();
-    //Constructors
-    public Manager() {
+    private List<JobEntity> lstjobs = null;
+
+    @PostConstruct
+    public void init()
+    {
+        lstjobs = new ArrayList<JobEntity>();
     }
     //Getter and Setters
 
@@ -38,6 +50,15 @@ public class Manager {
 
     public void setJob(JobDTO job) {
         this.job = job;
+    }
+
+    public List<JobEntity> getLstjobs() {
+        lstjobs = DAOFactory.getJob().findall();
+        return lstjobs;
+    }
+
+    public void setLstjobs(List<JobEntity> lstjobs) {
+        this.lstjobs = lstjobs;
     }
 
     //My Methods
@@ -84,20 +105,13 @@ public class Manager {
     public String createNewJobPost(){
         JobEntity jobEntity = new JobEntity();
         jobEntity.setJobTitle(job.getTitle());
-//        System.out.println(job.getTitle());
         jobEntity.setJobDescription(job.getDescription());
-//        System.out.println(job.getDescription());
         jobEntity.setJobExperienceRequired(job.getExperienceYears());
-//        System.out.println(job.getExperienceYears());
         QualificationEntity qualificationEntity = DAOFactory.getQualification().findById(QualificationEntity.class,job.getMinQualification());
-//        System.out.println(job.getMinQualification());
         jobEntity.setQualificationByJobMinQualificaionId(qualificationEntity);
         jobEntity.setJobSalary(job.getSalary());
-//        System.out.println(job.getSalary());
         jobEntity.setJobVacencies(job.getVacencies());
-//        System.out.println(job.getVacencies());
         jobEntity.setJobLocation(job.getAddress());
-//        System.out.println(job.getAddress());
         FacesContext context = FacesContext.getCurrentInstance();
         int id =(Integer) context.getExternalContext().getSessionMap().get("id");
         UserEntity userEntity = DAOFactory.getUser().findById(UserEntity.class,id);
@@ -105,4 +119,38 @@ public class Manager {
         DAOFactory.getJob().create(jobEntity);
         return "jobs.xhtml?faces-redirect=true";
     }
+
+    public boolean deleteJobEntity(int id){
+        if (DAOFactory.getJob().deleteJobById(id))
+            return true;
+        return false;
+    }
+
+    public String editJobEntity(int id){
+        job.setJobId(id);
+//        JobEntity jobEntity = DAOFactory.getJob().getJobById(id);
+//        job.setJobId(jobEntity.getJobId());
+//        job.setTitle(jobEntity.getJobTitle());
+        return "editJob.xhtml?faces-redirect=true";
+    }
+
+    public String editExistingJobPost(){
+        JobEntity jobEntity = new JobEntity();
+        jobEntity.setJobId(job.getJobId());
+        jobEntity.setJobTitle(job.getTitle());
+        jobEntity.setJobDescription(job.getDescription());
+        jobEntity.setJobExperienceRequired(job.getExperienceYears());
+        QualificationEntity qualificationEntity = DAOFactory.getQualification().findById(QualificationEntity.class,job.getMinQualification());
+        jobEntity.setQualificationByJobMinQualificaionId(qualificationEntity);
+        jobEntity.setJobSalary(job.getSalary());
+        jobEntity.setJobVacencies(job.getVacencies());
+        jobEntity.setJobLocation(job.getAddress());
+        FacesContext context = FacesContext.getCurrentInstance();
+        int id =(Integer) context.getExternalContext().getSessionMap().get("id");
+        UserEntity userEntity = DAOFactory.getUser().findById(UserEntity.class,id);
+        jobEntity.setUsersByCompanyId(userEntity);
+        DAOFactory.getJob().create(jobEntity);
+        return "jobs.xhtml?faces-redirect=true";
+    }
+
 }

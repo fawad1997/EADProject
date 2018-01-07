@@ -97,7 +97,7 @@ public abstract class AbstractHibernateDao<T, ID extends Serializable> implement
         try
         {
             session.beginTransaction();
-            session.save(instance);
+            session.saveOrUpdate(instance);
             session.getTransaction().commit();
         } catch (HibernateException ex) {
             message = FAILURE;
